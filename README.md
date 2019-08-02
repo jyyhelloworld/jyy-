@@ -1,1 +1,16 @@
 # jyy-
+import pyzbar.pyzbar as pyzbar
+from PIL import Image,ImageEnhance
+
+
+image = "HXIPJFKW]SIIH)R~%24C[)M.jpg"
+
+img = Image.open(image)
+
+img.show()
+
+barcodes = pyzbar.decode(img)
+
+for barcode in barcodes:
+    barcodeData = barcode.data.decode("utf-8")
+    print(barcodeData)
